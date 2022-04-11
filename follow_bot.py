@@ -14,14 +14,18 @@ class spotify:
             "Referer": "https://www.spotify.com/"
         }
         email = ("").join(random.choices(string.ascii_letters + string.digits, k = 8)) + "@gmail.com"
-        data = f"birth_day=1&birth_month=01&birth_year=1970&collect_personal_info=undefined&creation_flow=&creation_point=https://www.spotify.com/uk/&displayname=github.com/useragents&email={email}&gender=neutral&iagree=1&key=a1e486e2729f46d6bb368d6b2bcda326&password=D8c7mc82chb4sdX2Q&password_repeat=D8c7mc82chb4sdX2Q&platform=www&referrer=&send-email=1&thirdpartyemail=0&fb=0"
+        password = ("").join(random.choices(string.ascii_letters + string.digits, k = 8))
+        data = f"birth_day=1&birth_month=01&birth_year=1970&collect_personal_info=undefined&creation_flow=&creation_point=https://www.spotify.com/uk/&displayname=github.com/useragents&email={email}&gender=neutral&iagree=1&key=a1e486e2729f46d6bb368d6b2bcda326&password={password}&password_repeat={password}&platform=www&referrer=&send-email=1&thirdpartyemail=0&fb=0"
         try:
             create = self.session.post(
                 "https://spclient.wg.spotify.com/signup/public/v1/account",
                 headers = headers,
                 data = data
             )
-            return create.json()['login_token']
+            login_token = create.json()['login_token']
+            with open("Created.txt", "a") as f:
+                f.write(f'{email}:{password}:{login_token}\n')
+            return login_token
         except:
             return None
         
@@ -67,10 +71,10 @@ class spotify:
             self.profile = self.profile.split("?")[0]
         login_token = self.register_account()
         if login_token == None:
-            return None
+            return None, "while registering"
         auth_token = self.get_token(login_token)
         if auth_token == None:
-            return None
+            return None, "while getting auth token"
         headers = {
             "accept": "application/json",
             "Accept-Encoding": "gzip, deflate, br",
@@ -86,6 +90,6 @@ class spotify:
                 "https://api.spotify.com/v1/me/following?type=user&ids=" + self.profile,
                 headers = headers
             )
-            return True
+            return True, None
         except:
-            return False
+            return False, "while following"
