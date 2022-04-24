@@ -1,4 +1,7 @@
-import requests, random, string
+try:
+    import requests, random, string
+except ImportError:
+    input("Error while importing modules. Please install the modules in requirements.txt")
 
 class spotify:
 
