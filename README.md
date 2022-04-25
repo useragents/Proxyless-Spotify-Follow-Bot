@@ -21,4 +21,4 @@
 
 ### Please note
 
-This script was made for educational purposes, I am not responsible for your actions using this script.
+This script was made for educational purposes, I am not responsible for your actions using this script. This script was made for educational purposes.
