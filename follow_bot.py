@@ -1,5 +1,9 @@
-import requests, random, string
-
+try:
+    import requests, random, string
+except ImportError:
+    input("Error while importing modules. Please install the modules in requirements.txt")
+    exit()
+    
 class spotify:
 
     def __init__(self, profile, proxy = None):
