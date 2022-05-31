@@ -5,7 +5,7 @@ lock = threading.Lock()
 counter = 0
 proxies = []
 proxy_counter = 0
-spotify_profile = str(input("Spotify Link or Username: "))
+spotify_profile = str('"' + input("Spotify Link or Username: ") '"')
 threads = int(input("\nThreads: "))
 
 def load_proxies():
