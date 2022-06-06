@@ -14,8 +14,7 @@
 
 1. Download ZIP <a href="https://github.com/useragents/Proxyless-Spotify-Follow-Bot/archive/refs/heads/main.zip">here</a> and extract the ZIP 
 2. Install <a href="https://github.com/useragents/Instagram-Username-Auto-Claimer/blob/main/requirements.txt">requirements.txt</a> by typing `pip install -r requirements.txt` in Command Prompt
-3. Open the `main.py` in a text editor or other and replace the `spotify_profile` variable's value with your Spotify username/link.
-4. Run the `main.py` file and enter the amount of threads
+4. Run the `run.bat` file and enter the amount of threads
 
 --------------------------------------
 
