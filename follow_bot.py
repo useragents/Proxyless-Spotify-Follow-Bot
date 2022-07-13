@@ -72,6 +72,10 @@ class spotify:
             return None
 
     def follow(self):
+        playlist = False
+        if "/playlist/" in self.profile:
+            self.profile = self.profile.split("/playlist/")[1]
+            playlist = True
         if "/user/" in self.profile:
             self.profile = self.profile.split("/user/")[1]
         if "?" in self.profile:
@@ -97,10 +101,16 @@ class spotify:
             "authorization": "Bearer {}".format(auth_token),
         }
         try:
-            self.session.put(
+            if playlist == True:
+                self.session.put(
+                "https://api.spotify.com/v1/playlists/" + self.profile + "/followers?public=false",
+                headers = headers
+                )
+            else:
+                self.session.put(
                 "https://api.spotify.com/v1/me/following?type=user&ids=" + self.profile,
                 headers = headers
-            )
+                )
             return True, None
         except:
             return False, "while following"
