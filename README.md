@@ -4,7 +4,7 @@
   # Proxyless Spotify Follow Bot
   
 <h1>
-🌟 Join my Discord server <a href="https://discord.gg/x6UX9qufVR">here</a> 🌟
+🌟 Join my Discord server <a href="https://discord.gg/rDGsC2rwVv">here</a> 🌟
 </h1>
   Requests based multi-threaded script for increasing followers on Spotify. Click <a href="https://github.com/useragents/Proxyless-Spotify-Follow-Bot/issues">here</a> to report bugs.
   
