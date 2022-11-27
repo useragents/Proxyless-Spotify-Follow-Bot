@@ -78,7 +78,7 @@ class spotify:
             self.profile = self.profile.split("?")[0]
         login_token = self.register_account()
         if login_token == None:
-            return None, "while registering, ratelimit"
+            return None, "while registering, Spotify is ratelimiting your IP address."
         elif login_token == False:
             if self.proxy == None:
                 return None, f"unable to send request on register"
