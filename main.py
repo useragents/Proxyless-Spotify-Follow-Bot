@@ -10,7 +10,7 @@ threads = int(input("\nThreads: "))
 
 def load_proxies():
     if not os.path.exists("proxies.txt"):
-        print("\nFile proxies.txt not found")
+        print("\nFile proxies.txt not found. Please create a proxies.txt in the same folder as the main.py file")
         time.sleep(10)
         os._exit(0)
     with open("proxies.txt", "r", encoding = "UTF-8") as f:
